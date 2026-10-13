@@ -1,5 +1,6 @@
 site_name: Documentació del Projecte
-avatar: /docs/img/image.png
+avatar:
+image: docs/img/imagen.png 
 
 theme:
   name: landing
