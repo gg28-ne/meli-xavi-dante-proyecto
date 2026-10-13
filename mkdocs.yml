@@ -2,8 +2,8 @@ site_name: Documentació del Projecte
 
 theme:
   name: landing
-  logo: docs/img/image.png
-  
+  logo: img/image.png
+
 
 
 nav:
