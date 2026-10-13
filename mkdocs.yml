@@ -6,6 +6,3 @@ theme:
 
 nav:
   - Inici: index.md
-
-plugins:
-  - glightbox
