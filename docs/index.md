@@ -1,4 +1,3 @@
-![alt text](img/image.png)
 # BYTEWARE
 Byteware es una aplicacion diseñada para ayudar a talleres de ordenadores con la organización del trabajo.
 
