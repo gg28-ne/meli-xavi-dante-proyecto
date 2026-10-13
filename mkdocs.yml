@@ -1,5 +1,5 @@
 site_name: Documentació del Projecte
-favicon: /docs/img/image.png
+avatar: /docs/img/image.png
 
 theme:
   name: landing
