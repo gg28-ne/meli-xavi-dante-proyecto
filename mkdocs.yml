@@ -1,9 +1,8 @@
 site_name: Documentació del Projecte 
 
-theme:
-  name: dracula
-  custom_dir: theme
-  
+theme: dracula
+
+
 
 nav:
   - Inici: index.md
