@@ -1,4 +1,4 @@
-# BYTEWARE
+# BYTEWAREE
 Byteware es una aplicacion diseñada para ayudar a talleres de ordenadores con la organización del trabajo.
 
 # Como cubre Byteware los problemas?

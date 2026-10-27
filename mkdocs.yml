@@ -9,8 +9,6 @@ theme:
     primary: 'indigo'
     accent: 'indigo'
 
-
-
 nav:
   - Inici: index.md
   - miembros: miembros.md
