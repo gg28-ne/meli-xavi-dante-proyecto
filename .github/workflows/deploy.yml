@@ -26,6 +26,7 @@ jobs:
 
       - run:  pip install mkdocs-landing
       - run:  pip install plantuml-markdown
+      - run:  pip install mkdocs-dracula-theme
 
       - run: mkdocs build
 

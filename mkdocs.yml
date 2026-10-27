@@ -1,13 +1,9 @@
 site_name: Documentació del Projecte 
 
 theme:
-  name: landing
-  logo: img/image.png
-  avatar: img/image.png
-  favicon:  img/image.png
-  palette:
-    primary: 'indigo'
-    accent: 'indigo'
+  name: dracula
+  custom_dir: theme
+  
 
 nav:
   - Inici: index.md
