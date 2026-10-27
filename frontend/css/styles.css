@@ -1,0 +1,9 @@
+/* Base deliberadamente mínima. TODO F4: identidad visual, móvil y accesibilidad. */
+body { font-family: sans-serif; margin: 1rem; }
+section { border: 1px solid #aaa; padding: 1rem; margin: 1rem 0; }
+label { display: block; margin: .7rem 0; }
+input, select, button { font: inherit; max-width: 100%; }
+table { border-collapse: collapse; }
+th, td { border: 1px solid #aaa; padding: .4rem; }
+#messages { min-height: 5rem; border: 1px solid #aaa; padding: .5rem; }
+/* TODO: diferenciar usuario/asistente, espera, error y confirmación. */

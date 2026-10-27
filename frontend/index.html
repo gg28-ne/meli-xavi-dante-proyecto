@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="ca">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ReservaFàcil · Esquelet</title>
+  <link rel="stylesheet" href="/css/styles.css">
+  <script type="module" src="/js/app.js"></script>
+</head>
+<body>
+  <!-- TODO F1/F4: identitat, servei, horaris i condicions coherents amb config.js. -->
+  <header><h1>Nom del restaurant</h1><p>TODO: presentació del negoci.</p>
+    <nav><a href="#reserva">Reservar</a> · <a href="#assistent">Assistent</a> · <a href="/gestion/">Gestió</a></nav>
+  </header>
+  <main>
+    <section id="reserva">
+      <h2>Reserva una taula</h2>
+      <form id="booking-form">
+        <label>Nom <input name="name" required minlength="2" maxlength="100"></label>
+        <label>Data <input name="date" type="date" required></label>
+        <label>Hora <select name="time" required disabled><option value="">Consulta una data</option></select></label>
+        <label>Comensals <input name="diners" type="number" min="1" max="8" required></label>
+        <button type="submit">Reservar</button>
+      </form>
+      <p id="booking-status" role="status">TODO F4: connectar el formulari.</p>
+    </section>
+    <section id="assistent">
+      <h2>Assistent</h2>
+      <div id="messages" role="log" aria-live="polite"><p>TODO F5: missatge de benvinguda.</p></div>
+      <form id="chat-form">
+        <label>Missatge <input name="message" maxlength="500" required></label>
+        <button type="submit">Enviar</button>
+      </form>
+      <p id="chat-status" role="status"></p>
+    </section>
+    <section><h2>Condicions</h2><p>TODO F1: una taula, durada, capacitat, dies i hores. Dades fictícies.</p></section>
+  </main>
+</body>
+</html>

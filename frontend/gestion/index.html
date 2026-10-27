@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="ca">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Gestió · Esquelet</title>
+  <link rel="stylesheet" href="/css/styles.css">
+  <script type="module" src="/gestion/gestion.js"></script>
+</head>
+<body>
+  <h1>Gestió de reserves</h1><a href="/">Tornar</a>
+  <!-- TODO F3: aquesta pàgina ENCARA NO té autenticació. Configurar-la a Nginx. -->
+  <p id="admin-status" role="status">TODO F4: carregar les reserves.</p>
+  <button id="refresh" type="button">Actualitzar</button>
+  <table><thead><tr><th>ID</th><th>Nom</th><th>Data</th><th>Hora</th><th>Comensals</th><th>Estat</th><th>Accions</th></tr></thead>
+    <tbody id="reservations"></tbody>
+  </table>
+  <h2>Editar reserva</h2>
+  <form id="edit-form">
+    <label>ID <input name="id" readonly required></label>
+    <label>Nom <input name="name" required></label>
+    <label>Data <input name="date" type="date" required></label>
+    <label>Hora <input name="time" type="time" required></label>
+    <label>Comensals <input name="diners" type="number" min="1" max="8" required></label>
+    <button type="submit">Desar canvis</button>
+  </form>
+</body>
+</html>

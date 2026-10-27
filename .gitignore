@@ -1,0 +1,9 @@
+# Nunca publiques credenciales ni copias de la base de datos.
+.env
+nginx/.htpasswd
+backups/*
+!backups/.gitkeep
+node_modules/
+site/
+.venv/
+__pycache__/
