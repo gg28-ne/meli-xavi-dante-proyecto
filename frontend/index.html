@@ -4,13 +4,280 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>ReservaFàcil · Esquelet</title>
-  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Fraunces:opsz,wght@9..144,600&display=swap" rel="stylesheet">
+  <style>
+/* ReservaFàcil · estils (groc i gris) */
+:root {
+  --ink: #26282c;
+  --ink-soft: #5a5e66;
+  --yellow: #f7c921;
+  --yellow-dark: #c99b00;
+  --yellow-soft: #fff4c2;
+  --charcoal: #2b2d31;
+  --charcoal-2: #3a3d43;
+  --gray-bg: #e3e5e8;
+  --gray-line: #c9ccd1;
+  --paper: #ffffff;
+
+  --font-display: "Fraunces", Georgia, "Times New Roman", serif;
+  --font-body: "DM Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--gray-bg);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 1.0625rem;
+  line-height: 1.6;
+}
+
+/* ---------- Capçalera ---------- */
+header {
+  position: relative;
+  background: var(--yellow);
+  color: var(--charcoal);
+  padding: clamp(2.5rem, 7vw, 5rem) 1.5rem clamp(3.5rem, 8vw, 5.5rem);
+  text-align: center;
+}
+
+/* Franja de rajola hidràulica en groc i gris */
+header::after {
+  content: "";
+  position: absolute;
+  inset: auto 0 0 0;
+  height: 36px;
+  background-image:
+    radial-gradient(circle at 50% 50%, var(--yellow) 0 5px, transparent 6px),
+    conic-gradient(from 45deg at 50% 50%,
+      var(--charcoal-2) 0 25%, var(--charcoal) 0 50%,
+      var(--charcoal-2) 0 75%, var(--charcoal) 0);
+  background-size: 36px 36px;
+}
+
+header h1 {
+  margin: 0 auto;
+  max-width: 18ch;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(2.4rem, 7vw, 4.2rem);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+}
+
+header > p {
+  margin: 1rem auto 0;
+  max-width: 52ch;
+  color: #4a4320;
+  font-size: 1.125rem;
+}
+
+nav {
+  margin-top: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.6rem;
+}
+
+nav a {
+  display: inline-block;
+  padding: 0.55rem 1.2rem;
+  border-radius: 999px;
+  background: var(--charcoal);
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+nav a:hover {
+  background: #fff;
+  color: var(--charcoal);
+}
+
+/* ---------- Contingut ---------- */
+main {
+  max-width: 1040px;
+  margin: 0 auto;
+  padding: clamp(1.5rem, 4vw, 3rem) 1.25rem 4rem;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.75rem;
+  align-items: start;
+}
+
+section {
+  background: var(--paper);
+  border: 1px solid var(--gray-line);
+  border-radius: 14px;
+  padding: clamp(1.25rem, 3vw, 2rem);
+  scroll-margin-top: 1.5rem;
+}
+
+#reserva {
+  border-top: 6px solid var(--yellow);
+  box-shadow: 0 14px 34px -18px rgba(38, 40, 44, 0.5);
+}
+
+#assistent {
+  border-top: 6px solid var(--charcoal-2);
+}
+
+/* Condicions ocupa tota l'amplada */
+main > section:last-child {
+  grid-column: 1 / -1;
+  background: var(--charcoal);
+  border-color: var(--charcoal);
+  color: #d6d8dc;
+  border-radius: 4px 28px 4px 28px;
+}
+
+main > section:last-child h2 { color: var(--yellow); }
+
+h2 {
+  margin: 0 0 1.25rem;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1.75rem;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  color: var(--charcoal);
+}
+
+/* ---------- Formularis ---------- */
+form { display: grid; gap: 1rem; }
+
+label {
+  display: grid;
+  gap: 0.35rem;
+  font-weight: 500;
+  font-size: 0.95rem;
+  color: var(--ink-soft);
+}
+
+input, select {
+  width: 100%;
+  padding: 0.7rem 0.85rem;
+  border: 1.5px solid var(--gray-line);
+  border-radius: 8px;
+  background: #f3f4f6;
+  color: var(--ink);
+  font: inherit;
+  transition: border-color 0.2s, box-shadow 0.2s, background-color 0.2s;
+}
+
+input:hover, select:hover:not(:disabled) { border-color: #9a9ea6; }
+
+input:focus, select:focus {
+  outline: none;
+  border-color: var(--yellow-dark);
+  background: #fff;
+  box-shadow: 0 0 0 4px rgba(247, 201, 33, 0.35);
+}
+
+select:disabled { opacity: 0.6; cursor: not-allowed; }
+
+button {
+  justify-self: start;
+  padding: 0.8rem 1.7rem;
+  border: 0;
+  border-radius: 8px;
+  background: var(--yellow);
+  color: var(--charcoal);
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 3px 0 var(--yellow-dark);
+  transition: transform 0.12s, box-shadow 0.12s, background-color 0.2s;
+}
+
+button:hover { background: #ffd641; }
+
+button:active {
+  transform: translateY(2px);
+  box-shadow: 0 1px 0 var(--yellow-dark);
+}
+
+#chat-form button {
+  background: var(--charcoal);
+  color: #fff;
+  box-shadow: 0 3px 0 #111214;
+}
+#chat-form button:hover { background: var(--charcoal-2); }
+#chat-form button:active { box-shadow: 0 1px 0 #111214; }
+
+:focus-visible { outline: 3px solid var(--charcoal); outline-offset: 3px; }
+input:focus-visible, select:focus-visible { outline: none; }
+
+/* ---------- Estat ---------- */
+[role="status"] {
+  margin: 1rem 0 0;
+  padding: 0.65rem 0.9rem;
+  border-left: 4px solid var(--yellow);
+  border-radius: 0 8px 8px 0;
+  background: var(--yellow-soft);
+  color: #4d4110;
+  font-size: 0.95rem;
+}
+[role="status"]:empty { display: none; }
+
+/* ---------- Xat ---------- */
+#messages {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  min-height: 180px;
+  max-height: 340px;
+  overflow-y: auto;
+  margin-bottom: 1rem;
+  padding: 1rem;
+  border: 1px solid var(--gray-line);
+  border-radius: 10px;
+  background: #f1f2f4;
+}
+
+#messages p {
+  max-width: 85%;
+  margin: 0;
+  padding: 0.6rem 0.95rem;
+  border-radius: 16px 16px 16px 4px;
+  background: #fff;
+  border: 1px solid var(--gray-line);
+  font-size: 0.98rem;
+}
+
+#messages .user,
+#messages p.user {
+  align-self: flex-end;
+  background: var(--yellow);
+  border-color: var(--yellow);
+  color: var(--charcoal);
+  border-radius: 16px 16px 4px 16px;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 800px) {
+  main { grid-template-columns: 1fr; }
+  button { justify-self: stretch; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  * { transition: none !important; }
+}
+  </style>
   <script type="module" src="/js/app.js"></script>
 </head>
 <body>
   <!-- TODO F1/F4: identitat, servei, horaris i condicions coherents amb config.js. -->
   <header><h1>Nom del restaurant</h1><p>TODO: presentació del negoci.</p>
-    <nav><a href="#reserva">Reservar</a> · <a href="#assistent">Assistent</a> · <a href="/gestion/">Gestió</a></nav>
+    <nav><a href="#reserva">Reservar</a> <a href="#assistent">Assistent</a> <a href="/gestion/">Gestió</a></nav>
   </header>
   <main>
     <section id="reserva">
